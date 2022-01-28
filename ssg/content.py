@@ -4,17 +4,18 @@ from collections.abc import Mapping
 
 class Content(Mapping):
     """docstring for ."""
-    __delimeter = "^(?:-|\+){3}\s*$"
+    __delimeter = r"^(?:-|\+){3}\s*$"
     __regex = re.compile(__delimeter,re.MULTILINE)
 
-    def load(self, cls, string):
-        _, fm, content =  __regex.split(string,maxsplit=2)
+    @classmethod
+    def load(cls, string):
+        _, fm, content =  cls.__regex.split(string,2)
         metadata = load(fm, Loader=FullLoader)
         return cls(metadata,content)
 
     def __init__(self, metadata, content):
         self.data = metadata
-        self.data["content"] = self.content
+        self.data["content"] = content
 
     @property
     def body(self):
