@@ -7,8 +7,7 @@ class Parser:
     extensions: List[str] = []
 
     def valid_extension(self, extension):
-        if extension in self.extensions:
-            return extension
+        return extension in self.extensions
 
     def parse(self, path, source, dest):
         try:
@@ -16,7 +15,6 @@ class Parser:
             self.source = Path(source)
             self.dest = Path(dest)
         except NotImplementedError as e:
-            print(f"{e!r}")
             raise
 
     def read(self, path):
