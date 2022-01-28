@@ -1,6 +1,6 @@
 from pathlib import Path
 
-class Site(object):
+class Site:
     """docstring for ."""
 
     def __init__(self, source, dest):
