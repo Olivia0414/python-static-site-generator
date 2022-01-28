@@ -6,9 +6,9 @@ class Parser:
     """docstring for Parser."""
     extensions: List[str] = []
 
-    def valid_extension(self, extention):
-        if extention in self.extensions:
-            return extention
+    def valid_extension(self, extension):
+        if extension in self.extensions:
+            return extension
 
     def parse(self, path, source, dest):
         try:
